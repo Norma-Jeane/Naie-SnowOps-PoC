@@ -1000,6 +1000,7 @@ def run_recalculation_action(
 
 def render_header() -> None:
     st.title(APP_TITLE)
+    st.info("💡 アプリの使い方や地図の操作手順（ヘルプ）は、左上の矢印「 » 」をクリックしてサイドバーを開くと確認できます。")
     if is_debug_mode():
         st.info(
             "デバッグモード ON: D3 由来の開発確認表示を追加で表示しています。"
@@ -3378,7 +3379,8 @@ def main() -> None:
 
     setup_logging(verbose=False)
 
-    with st.sidebar.expander("🧭 操作手順書 (ヘルプ)", expanded=False):
+    with st.sidebar:
+        st.markdown("### 🧭 操作手順書 (ヘルプ)")
         st.markdown(load_manual_md())
 
     render_header()
