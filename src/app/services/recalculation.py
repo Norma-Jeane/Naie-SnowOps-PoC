@@ -2,25 +2,23 @@
 # -*- coding: utf-8 -*-
 
 """
-D3 再計算サービス
+除雪ルート再計算サービス
 
 ■ 目的
-- D3 の操作状態から app 内再計算 request を生成する
+- マップ上の操作状態から app 内再計算 request を生成する
 - current_start_point と excluded_roads を検証する
 - 除外道路を反映した一時対象道路 GeoJSON を生成する
-- C7 由来の現実的ルート生成ロジックを app 内で実行する
+- 最適な現実的ルート生成ロジックを app 内で実行する
 - route / summary / metrics を返す
 
 ■ 位置づけ
-- D3-4: 再計算入力変換
-- D3-5: 再計算接続
-- Step C 側 test script を直接の接続先とはしない
-- CLI / subprocess 前提は持たない
+- 再計算入力変換および接続の実行
+- 外部の test script や CLI / subprocess 前提は持たない
 
 ■ 備考
 - 共通 IO は src.app.services.io を使う
 - edge_id の正規化思想は src.app.services.road_state と整合を取る
-- strategy は request に持つが、現時点では D3 UI には露出しない
+- strategy は request に持つが、現時点では UI には露出しない
 - save_outputs=True の場合のみ route / summary を保存する
 """
 

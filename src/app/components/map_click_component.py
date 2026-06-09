@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 """
-Step D / D3 用 Custom Component ラッパ（本流最小版）
+Streamlit用マップ操作カスタムコンポーネントラッパー
 
 ■ 目的
-- D3_app 本流から map custom component を呼ぶ
+- 本流アプリから map custom component を呼ぶ
 - 最初の段階では start_point_set の受信安定化を優先する
 - raw value をそのまま返し、normalize は行わない
 

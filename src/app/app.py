@@ -5,10 +5,9 @@
 最終アプリ入口: 気象推論・道路選定・再計算統合
 
 ■ 目的
-- map_click_component を D3_app 本流へ再接続する
+- map_click_component を本流アプリへ接続する
 - component event の受信直後には st.rerun() を使わない
 - bridge 受信を壊さずに state 更新が後続描画へ反映されるか確認する
-- bridge_smoke_component はデバッグ専用資産として残し、本流からは外す
 
 ■ 実行方法
 cmd:

@@ -13,8 +13,7 @@
 
 ■ 方針
 - 生CSVは本線ではメモリ上の文字列として扱う
-- C2b の確認用スクリプトを鉱脈とみなし、
-  生CSV整形に有用なコアだけを service 側へ再配置する
+- 生CSVの整形・パース処理を有用なユーティリティとして service 側へ配置する
 - 6h差分や hour はこの module では作らない
 - station_num は取得制御の主キー
 - station_name は任意メタ情報として保持するが、処理の必須条件にはしない
@@ -52,7 +51,7 @@ DEFAULT_HEADERS = {
     "Origin": "https://www.data.jma.go.jp",
 }
 
-# C2a 実行方法メモ相当の既定値
+# 気象庁ダウンロードAPIで指定する標準的なデータ項目リストの既定値
 DEFAULT_ELEMENT_NUM_LIST = [
     ["201", ""],  # 気温
     ["101", ""],  # 降水量
@@ -348,7 +347,7 @@ def find_column(columns: list[str], patterns: list[str]) -> str | None:
 def build_column_mapping_for_fetcher(columns: list[str]) -> dict[str, str]:
     """
     service 用に絞った最小列マッピング。
-    C2b の考え方を流用するが、station_name や補助分類には依存しない。
+    気象庁CSVのヘッダー形式に沿ってマッピングを行うが、station_name や補助分類には依存しない。
     """
     primary_columns = []
     for col in columns:
