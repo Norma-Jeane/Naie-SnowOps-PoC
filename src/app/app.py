@@ -3336,6 +3336,24 @@ def main() -> None:
         page_title=APP_TITLE,
         page_icon="🧭",
         layout="wide",
+        initial_sidebar_state="collapsed",
+    )
+
+    # Inject custom CSS to add a "Help/ヘルプ" label next to the collapsed sidebar button
+    st.markdown(
+        """
+        <style>
+        button[data-testid="collapsedSidebarButton"]::after {
+            content: "ヘルプ";
+            margin-left: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #31333F;
+            white-space: nowrap;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
     )
 
     setup_logging(verbose=False)
