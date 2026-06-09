@@ -3321,6 +3321,16 @@ def render_main_layout() -> None:
         st.error(f"表示処理に失敗しました: {exc}")
 
 
+def load_manual_md() -> str:
+    manual_path = PROJECT_ROOT / "Docs" / "manual.md"
+    if manual_path.exists():
+        try:
+            return manual_path.read_text(encoding="utf-8")
+        except Exception as exc:
+            return f"手順書ファイルの読み込みに失敗しました: {exc}"
+    return "手順書ファイルが見つかりません。"
+
+
 def main() -> None:
     st.set_page_config(
         page_title=APP_TITLE,
@@ -3329,6 +3339,10 @@ def main() -> None:
     )
 
     setup_logging(verbose=False)
+
+    with st.sidebar.expander("🧭 操作手順書 (ヘルプ)", expanded=False):
+        st.markdown(load_manual_md())
+
     render_header()
     render_main_layout()
 
