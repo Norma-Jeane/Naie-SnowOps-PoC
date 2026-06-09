@@ -16,8 +16,13 @@ python -m streamlit run src/app/app.py
 
 from __future__ import annotations
 
-from datetime import date, datetime, time, timedelta
+import sys
 from pathlib import Path
+
+# Add repository root to python search path for Streamlit Cloud
+sys.path.append(str(Path(__file__).resolve().parents[2]))
+
+from datetime import date, datetime, time, timedelta
 import json
 import logging
 import math
