@@ -3339,17 +3339,37 @@ def main() -> None:
         initial_sidebar_state="collapsed",
     )
 
-    # Inject custom CSS to add a "Help/ヘルプ" label next to the collapsed sidebar button
+    # Inject custom CSS to add a styled "Help/ヘルプ" label next to the collapsed sidebar button
     st.markdown(
         """
         <style>
-        button[data-testid="collapsedSidebarButton"]::after {
-            content: "ヘルプ";
-            margin-left: 10px;
-            font-size: 14px;
+        /* Target the collapsed sidebar button to allow visible overflow */
+        button[data-testid="collapsedSidebarButton"],
+        button[title="Open sidebar"],
+        button[aria-label="Open sidebar"] {
+            overflow: visible !important;
+            position: relative !important;
+        }
+
+        /* Position the helper text to the right of the button */
+        button[data-testid="collapsedSidebarButton"]::after,
+        button[title="Open sidebar"]::after,
+        button[aria-label="Open sidebar"]::after {
+            content: "👈 ヘルプ（ここをクリック）";
+            position: absolute;
+            left: 45px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 13px;
             font-weight: 500;
             color: #31333F;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            padding: 4px 10px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.15);
             white-space: nowrap;
+            z-index: 999999;
         }
         </style>
         """,
