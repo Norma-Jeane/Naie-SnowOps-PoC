@@ -1,0 +1,13 @@
+{
+  "locations": {
+    "naie_town_hall": {
+      "name": "奈井江町役場",
+      "lat": 43.4253858,
+      "lon": 141.8834887,
+      "status": "confirmed_public_map",
+      "_comment": "公開地図サービスで確認した座標。必要なら後で公式地図の値と照合する。",
+      "_source": "MapFan / 奈井江町公式サイト住所",
+      "_updated_at": "2026-04-07"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+streamlit
+pandas
+geopandas
+shapely
+networkx
+requests
+joblib
+scikit-learn

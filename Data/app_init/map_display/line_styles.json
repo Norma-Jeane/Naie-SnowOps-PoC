@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "lineStyles": {
+    "target": {
+      "lineColor": "rgba(0, 0, 255, 1)",
+      "lineWidth": 8
+    },
+    "connector": {
+      "lineColor": "rgba(0, 255, 255, 1)",
+      "lineWidth": 8
+    },
+    "return": {
+      "lineColor": "rgba(0, 191, 255, 1)",
+      "lineWidth": 8
+    },
+    "candidate": {
+      "lineColor": "rgba(105, 105, 105, 0.98)",
+      "lineWidth": 2
+    },
+    "nonOperable": {
+      "lineColor": "rgba(220, 220, 220, 0.98)",
+      "lineWidth": 2
+    },
+    "strongProhibit": {
+      "lineColor": "rgba(17, 24, 39, 0.98)",
+      "lineWidth": 8
+    },
+    "targetRequest": {
+      "lineColor": "rgba(217, 70, 239, 0.98)",
+      "lineWidth": 8
+    },
+    "conditionalAllow": {
+      "lineColor": "rgba(255, 165, 0, 0.98)",
+      "lineWidth": 8
+    },
+    "unmetTarget": {
+      "lineColor": "rgba(220, 38, 38, 0.98)",
+      "lineWidth": 8
+    },
+    "partialUnmetTarget": {
+      "lineColor": "rgba(220, 38, 38, 0.98)",
+      "lineWidth": 8,
+      "lineDasharray": [0.35, 1.4]
+    }
+  },
+  "guideStyles": {
+    "routeCycleGuide": {
+      "lineColor": "#16a34a",
+      "lineWidth": 1.8,
+      "baseOffsetPx": 5,
+      "laneOffsetPx": 3,
+      "marker": {
+        "type": "arrow",
+        "fillColor": "#16a34a",
+        "strokeColor": "#16a34a",
+        "lengthPx": 14,
+        "widthPx": 10
+      },
+      "markerLayout": {
+        "startPaddingPx": 70,
+        "endPaddingPx": 36,
+        "minRunLengthPx": 70
+      }
+    }
+  }
+}
