@@ -1000,7 +1000,6 @@ def run_recalculation_action(
 
 def render_header() -> None:
     st.title(APP_TITLE)
-    st.info("💡 使い方がわからない場合は、左上の矢印「 » 」をクリックしてサイドバーを開けばヘルプが見えるよ。")
     if is_debug_mode():
         st.info(
             "デバッグモード ON: D3 由来の開発確認表示を追加で表示しています。"
@@ -3337,19 +3336,19 @@ def main() -> None:
         page_title=APP_TITLE,
         page_icon="🧭",
         layout="wide",
-        initial_sidebar_state="collapsed",
     )
-
-
 
     setup_logging(verbose=False)
 
-    with st.sidebar:
-        st.markdown("### 🧭 操作手順書 (ヘルプ)")
-        st.markdown(load_manual_md())
-
     render_header()
-    render_main_layout()
+
+    tab_map, tab_help = st.tabs(["🗺️ 除雪計画マップ", "📖 操作手順書 (ヘルプ)"])
+
+    with tab_map:
+        render_main_layout()
+
+    with tab_help:
+        st.markdown(load_manual_md())
 
 def render_road_selection_controls_v2(operable_roads_gdf: gpd.GeoDataFrame) -> None:
     st.subheader("道路補助操作")
