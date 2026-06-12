@@ -1000,7 +1000,7 @@ def run_recalculation_action(
 
 def render_header() -> None:
     st.title(APP_TITLE)
-    st.info("💡 アプリの使い方や地図の操作手順（ヘルプ）は、左上の矢印「 » 」をクリックしてサイドバーを開くと確認できます。")
+    st.info("💡 使い方がわからない場合は、左上の矢印「 » 」をクリックしてサイドバーを開けばヘルプが見えるよ。")
     if is_debug_mode():
         st.info(
             "デバッグモード ON: D3 由来の開発確認表示を追加で表示しています。"
@@ -3340,42 +3340,7 @@ def main() -> None:
         initial_sidebar_state="collapsed",
     )
 
-    # Inject custom CSS to add a styled "Help/ヘルプ" label next to the collapsed sidebar button
-    st.markdown(
-        """
-        <style>
-        /* Target the collapsed sidebar button to allow visible overflow */
-        button[data-testid="collapsedSidebarButton"],
-        button[title="Open sidebar"],
-        button[aria-label="Open sidebar"] {
-            overflow: visible !important;
-            position: relative !important;
-        }
 
-        /* Position the helper text to the right of the button */
-        button[data-testid="collapsedSidebarButton"]::after,
-        button[title="Open sidebar"]::after,
-        button[aria-label="Open sidebar"]::after {
-            content: "👈 ヘルプ（ここをクリック）";
-            position: absolute;
-            left: 45px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 13px;
-            font-weight: 500;
-            color: #31333F;
-            background-color: #ffffff;
-            border: 1px solid #cccccc;
-            border-radius: 4px;
-            padding: 4px 10px;
-            box-shadow: 0px 2px 5px rgba(0,0,0,0.15);
-            white-space: nowrap;
-            z-index: 999999;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
 
     setup_logging(verbose=False)
 
